@@ -55,6 +55,18 @@ namespace 衰减片控制端
             button4.Enabled = false;                             //
             button5.Enabled = false;                             //
             button6.Enabled = false;                             //
+            button7.Enabled = false;                             //
+            button8.Enabled = false;                             //
+            button9.Enabled = false;                             //
+            button10.Enabled = false;                            //
+            button11.Enabled = false;                            //
+            button12.Enabled = false;                            //
+            button13.Enabled = false;                            //
+            button14.Enabled = false;                            //
+            button15.Enabled = false;                            //
+            button16.Enabled = false;                            //
+            button17.Enabled = false;                            //
+            button18.Enabled = false;                             //
 
         }
 
@@ -104,6 +116,18 @@ namespace 衰减片控制端
                 button4.Enabled = true;                             //
                 button5.Enabled = true;                             //
                 button6.Enabled = true;                             //
+                button7.Enabled = true;                             //
+                button8.Enabled = true;                             //
+                button9.Enabled = true;                             //
+                button10.Enabled = true;                            //
+                button11.Enabled = true;                            //
+                button12.Enabled = true;                            //
+                button13.Enabled = true;                            //
+                button14.Enabled = true;                            //
+                button15.Enabled = true;                            //
+                button16.Enabled = true;                            //
+                button17.Enabled = true;                            //
+                button18.Enabled = true;                             //
             }
             else if (serialPort1.IsOpen)
             {
@@ -113,6 +137,18 @@ namespace 衰减片控制端
                 button4.Enabled = false;                             //
                 button5.Enabled = false;                             //
                 button6.Enabled = false;                             //
+                button7.Enabled = false;                             //
+                button8.Enabled = false;                             //
+                button9.Enabled = false;                             //
+                button10.Enabled = false;                            //
+                button11.Enabled = false;                            //
+                button12.Enabled = false;                            //
+                button13.Enabled = false;                            //
+                button14.Enabled = false;                            //
+                button15.Enabled = false;                            //
+                button16.Enabled = false;                            //
+                button17.Enabled = false;                            //
+                button18.Enabled = false;                             //
 
                 serialPort1.Close();
 
@@ -146,7 +182,6 @@ namespace 衰减片控制端
                 string[] grp = textData.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                 List<byte> list = new List<byte>();
-
                 foreach (var item in grp)
                 {
                     list.Add(Convert.ToByte(item, 16));
@@ -648,6 +683,10 @@ namespace 衰减片控制端
             return int.Parse(HexI, System.Globalization.NumberStyles.HexNumber);
         }
 
-
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CommandSend(1, 7, 42, 2000, 0);
+            CommandSend(2, 7, 42, 2000, 0);
+        }
     }
 }
